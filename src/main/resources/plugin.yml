@@ -1,0 +1,4 @@
+name: DisablePhatoms
+version: '${project.version}'
+main: me.lagggpixel.disablephatoms.Main
+api-version: '1.20'
