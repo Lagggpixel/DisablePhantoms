@@ -11,3 +11,11 @@ commands:
 permissions:
   disablephantoms.command:
     default: op
+  disablephantoms.command.reload:
+    default: op
+  disablephantoms.command.whitelist:
+    default: op
+  disablephantoms.command.worlds:
+    default: op
+  disablephantoms.command.world:
+    default: op
