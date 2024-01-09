@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>me.lagggpixel</groupId>
-    <artifactId>disablephatoms</artifactId>
+    <artifactId>disablephantoms</artifactId>
     <version>1.0.1</version>
     <packaging>jar</packaging>
 
-    <name>DisablePhatoms</name>
+    <name>DisablePhantoms</name>
 
     <properties>
         <java.version>1.8</java.version>
@@ -70,5 +70,11 @@
             <version>1.20.4-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
+      <dependency>
+        <groupId>org.jetbrains</groupId>
+        <artifactId>annotations</artifactId>
+        <version>24.1.0</version>
+        <scope>compile</scope>
+      </dependency>
     </dependencies>
 </project>

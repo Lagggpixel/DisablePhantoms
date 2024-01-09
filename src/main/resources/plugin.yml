@@ -1,4 +1,13 @@
-name: DisablePhatoms
+name: DisablePhantoms
 version: '${project.version}'
-main: me.lagggpixel.disablephatoms.Main
+main: me.lagggpixel.disablephantoms.Main
 api-version: '1.20'
+commands:
+  disablephantoms:
+    description: "Main command of the plugin"
+    usage: "disablephantoms <reload>"
+    permission: disablephantoms.command
+
+permissions:
+  disablephantoms.command:
+    default: op

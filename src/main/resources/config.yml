@@ -1,0 +1,7 @@
+# Whether if the worlds list below should be a whitelist or not
+# If whitelist mode is on, all worlds are allowed to spawn phantoms by default unless they are in the worlds list
+# If whitelist mode is off, only the worlds in the worlds list are allowed to spawn phantoms
+whitelist: false
+# Which worlds should be blacklisted (or whitelist if whitelist is true)
+worlds:
+  - "Example World"
