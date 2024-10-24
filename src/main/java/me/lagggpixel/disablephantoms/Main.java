@@ -5,6 +5,7 @@ import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -19,6 +20,7 @@ public final class Main extends JavaPlugin implements CommandExecutor, Listener 
 
   private boolean isWhitelist;
   private List<String> worlds;
+  private List<String> allowedSpawnReasons;
 
   @Override
   public void onEnable() {
@@ -36,6 +38,7 @@ public final class Main extends JavaPlugin implements CommandExecutor, Listener 
     saveConfig();
     isWhitelist = getConfig().getBoolean("whitelist");
     worlds = getConfig().getStringList("worlds");
+    allowedSpawnReasons = getConfig().getStringList("allowedSpawnReasons").stream().map(String::toLowerCase).toList();
   }
 
   private void registerListeners() {
@@ -50,6 +53,12 @@ public final class Main extends JavaPlugin implements CommandExecutor, Listener 
   public void onCreatureSpawnEvent(CreatureSpawnEvent event) {
     World world = event.getLocation().getWorld();
     if (world == null) {
+      return;
+    }
+    if (event.getEntityType() != EntityType.PHANTOM) {
+      return;
+    }
+    if (allowedSpawnReasons.contains(event.getSpawnReason().name().toLowerCase())) {
       return;
     }
     if (!canSpawnInWorld(world)) {
@@ -133,7 +142,7 @@ public final class Main extends JavaPlugin implements CommandExecutor, Listener 
       }
       commandSender.sendMessage("Disable Phantoms: Whitelisted/Blacklisted worlds: ");
       for (String world : worlds) {
-        commandSender.sendMessage(" §7- §e"+ world);
+        commandSender.sendMessage(" §7- §e" + world);
       }
       return true;
     }

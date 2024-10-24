@@ -5,3 +5,9 @@ whitelist: false
 # Which worlds should be blacklisted (or whitelist if whitelist is true)
 worlds:
   - "Example World"
+# What spawn reasons should be allowed
+# Do not change this unless you know what you are doing
+allowedSpawnReasons:
+  - SPAWNER_EGG # Allow for spawner eggs to spawn phantoms
+  - SPAWNER # Allow for spawners to spawn phantoms
+  - CUSTOM # Allow for other plugins trying to spawn phantoms
